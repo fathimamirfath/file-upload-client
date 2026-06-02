@@ -1,0 +1,23 @@
+.superadmin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  /* Light modern background for main content */
+}
+
+.superadmin-main-content {
+  flex: 1;
+  margin-left: 280px;
+  /* Space for the fixed sidebar */
+  padding: 32px 32px 32px 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Add some responsive behavior if needed */
+@media (max-width: 768px) {
+  .superadmin-main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}

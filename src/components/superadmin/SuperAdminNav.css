@@ -1,0 +1,133 @@
+.superadmin-sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #0f172a; /* Deep slate dark mode */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 32px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  font-size: 28px;
+  color: #3b82f6; /* Vibrant blue */
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-header h2 span {
+  color: #3b82f6;
+  font-weight: 300;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0 24px 16px;
+  gap: 6px;
+  flex: 1;
+}
+
+.menu-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #64748b;
+  margin: 16px 0 8px 12px;
+  font-weight: 600;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 12px 0 0 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+}
+
+.nav-item:hover .nav-icon {
+  transform: translateX(3px);
+  color: #3b82f6;
+}
+
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 100%);
+  color: #3b82f6;
+  border-left: 4px solid #3b82f6;
+  border-radius: 0;
+}
+
+.nav-item.active .nav-icon {
+  color: #3b82f6;
+}
+
+.logout-btn {
+  margin-top: auto;
+  margin-bottom: 16px;
+  color: #ef4444;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.logout-btn:hover .nav-icon {
+  color: #ef4444;
+}
+
+/* Custom scrollbar for sidebar */
+.superadmin-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.superadmin-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.superadmin-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}

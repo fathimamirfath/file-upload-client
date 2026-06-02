@@ -1,0 +1,117 @@
+/* Minimal Register Styles */
+
+.minimal-container.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0f111a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.register-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+}
+
+.minimal-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.minimal-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.minimal-msg.error {
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+.minimal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.minimal-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.minimal-form-group label {
+    font-size: 0.85rem;
+    color: #a5a5b0;
+}
+
+.minimal-form-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.minimal-form-group input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.minimal-btn {
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background: #6c5ce7;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+}
+
+.minimal-btn:hover:not(:disabled) {
+    background: #5b4cc4;
+}
+
+.minimal-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.minimal-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a5a5b0;
+}
+
+.minimal-link {
+    color: #6c5ce7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.minimal-link:hover {
+    color: #8c7df7;
+}
