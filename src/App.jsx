@@ -21,6 +21,7 @@ import SuperAdminDashboard from "./pages/superadmin/SuperAdminDashboard";
 import SuperAdminManageAdmin from "./pages/superadmin/SuperAdminManageAdmin";
 import SuperAdminManageUsers from "./pages/superadmin/SuperAdminManageUsers";
 import SuperAdminManageFiles from "./pages/superadmin/SuperAdminManageFiles";
+import SuperAdminLogin from "./pages/superadmin/SuperAdminLogin";
 
 import { useAuth } from "./context/AuthContext";
 import Profile from "./pages/user/Profile";
@@ -39,6 +40,14 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/superadmin" element={<SuperAdminLogin />} />
+
+        {/* Legacy Super Admin Redirects */}
+        <Route path="/superadmindashboard" element={<SuperAdminDashboard />} />
+        <Route path="/manageadmins" element={<SuperAdminManageAdmin />} />
+        <Route path="/superadminusers" element={<SuperAdminManageUsers />} />
+        <Route path="/superadminfiles" element={<SuperAdminManageFiles />} />
+        <Route path="/superadminlogin" element={<SuperAdminLogin />} />
 
         {/* User Protected Routes */}
         <Route element={<UserProtectedRouter />}>
@@ -62,10 +71,10 @@ function App() {
         {/* Super Admin Protected Routes */}
         <Route element={<SuperAdminProtectedRouter />}>
           <Route element={<SuperAdminLayout />}>
-            <Route path="/superadmindashboard" element={<SuperAdminDashboard />} />
-            <Route path="/manageadmins" element={<SuperAdminManageAdmin />} />
-            <Route path="/superadminusers" element={<SuperAdminManageUsers />} />
-            <Route path="/superadminfiles" element={<SuperAdminManageFiles />} />
+            <Route path="/superadmin/dashboard" element={<SuperAdminDashboard />} />
+            <Route path="/superadmin/manageadmins" element={<SuperAdminManageAdmin />} />
+            <Route path="/superadmin/users" element={<SuperAdminManageUsers />} />
+            <Route path="/superadmin/files" element={<SuperAdminManageFiles />} />
             {/* Add the rest as you build them: /roles, /settings, /auditlogs, /superadminprofile */}
           </Route>
         </Route>

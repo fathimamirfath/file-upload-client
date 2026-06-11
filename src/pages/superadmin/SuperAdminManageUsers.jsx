@@ -69,6 +69,41 @@ const SuperAdminManageUsers = () => {
         }
     };
 
+    const handleMakeAdmin = async (id) => {
+        const result = await Swal.fire({
+            title: 'Make Admin?',
+            text: "This user will be granted full administrative privileges.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#10b981',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: 'Yes, Make Admin'
+        });
+
+        if (!result.isConfirmed) return;
+
+        try {
+            await superadminService.changeRole(id, "admin", token);
+            setUsers((prevUsers) =>
+                prevUsers.filter((user) => user._id !== id)
+            );
+            Swal.fire({
+                title: 'Promoted!',
+                text: 'The user has been promoted to Admin successfully.',
+                icon: 'success',
+                confirmButtonColor: '#3b82f6'
+            });
+        } catch (error) {
+            console.error("Failed to promote user:", error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Failed to change role.',
+                icon: 'error',
+                confirmButtonColor: '#3b82f6'
+            });
+        }
+    };
+
     // Helper function to count files for a specific user
     const getUserFileCount = (userId) => {
         return files.filter(file => {
@@ -148,13 +183,22 @@ const SuperAdminManageUsers = () => {
                                         </span>
                                     </td>
                                     <td>
-                                        <button
-                                            className="action-btn"
-                                            style={{ backgroundColor: "#ef4444" }}
-                                            onClick={() => handleDelete(user._id)}
-                                        >
-                                            Delete
-                                        </button>
+                                        <div style={{ display: 'flex', gap: '10px' }}>
+                                            <button
+                                                className="action-btn"
+                                                style={{ backgroundColor: "#10b981", fontSize: "0.85rem", padding: "6px 12px" }}
+                                                onClick={() => handleMakeAdmin(user._id)}
+                                            >
+                                                Make Admin
+                                            </button>
+                                            <button
+                                                className="action-btn"
+                                                style={{ backgroundColor: "#ef4444", fontSize: "0.85rem", padding: "6px 12px" }}
+                                                onClick={() => handleDelete(user._id)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))

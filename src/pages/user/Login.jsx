@@ -27,7 +27,7 @@ const Login = () => {
         login(response.data.user, response.data.token);
 
         if (response.data.user.role === 'superadmin') {
-          navigate('/superadmindashboard');
+          navigate('/superadmin/dashboard');
         } else if (response.data.user.role === 'admin') {
           navigate('/admindashboard');
         } else {

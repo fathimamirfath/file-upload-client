@@ -24,7 +24,7 @@ const AdminProtectedRouter = () => {
   if (user.role !== "admin") {
     // Optionally redirect superadmins to their own dash, and users to their dash
     if (user.role === "superadmin") {
-      return <Navigate to="/superadmindashboard" replace />;
+      return <Navigate to="/superadmin/dashboard" replace />;
     }
     return <Navigate to="/dashboard" replace />;
   }

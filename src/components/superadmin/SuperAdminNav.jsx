@@ -16,7 +16,7 @@ const SuperAdminNav = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate("/superadmin");
   };
 
   return (
@@ -34,7 +34,7 @@ const SuperAdminNav = () => {
         <p className="menu-label">Main Menu</p>
 
         <NavLink
-          to="/superadmindashboard"
+          to="/superadmin/dashboard"
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
@@ -44,7 +44,7 @@ const SuperAdminNav = () => {
         </NavLink>
 
         <NavLink
-          to="/manageadmins"
+          to="/superadmin/manageadmins"
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
@@ -54,7 +54,7 @@ const SuperAdminNav = () => {
         </NavLink>
 
         <NavLink
-          to="/superadminusers"
+          to="/superadmin/users"
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
@@ -64,7 +64,7 @@ const SuperAdminNav = () => {
         </NavLink>
 
         <NavLink
-          to="/superadminfiles"
+          to="/superadmin/files"
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }

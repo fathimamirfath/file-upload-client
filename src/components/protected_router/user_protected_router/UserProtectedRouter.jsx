@@ -21,7 +21,7 @@ const UserProtectedRouter = () => {
   // Strictly enforce user role
   if (user.role !== "user") {
     if (user.role === "superadmin") {
-      return <Navigate to="/superadmindashboard" replace />;
+      return <Navigate to="/superadmin/dashboard" replace />;
     }
     if (user.role === "admin") {
       return <Navigate to="/admindashboard" replace />;

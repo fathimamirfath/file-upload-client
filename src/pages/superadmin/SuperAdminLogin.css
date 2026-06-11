@@ -1,0 +1,99 @@
+.superadmin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0f172a;
+  font-family: 'Inter', sans-serif;
+}
+
+.superadmin-login-card {
+  background: #1e293b;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid #334155;
+}
+
+.superadmin-login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.superadmin-login-header h2 {
+  color: #f8fafc;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.superadmin-login-header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.superadmin-error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  text-align: center;
+}
+
+.superadmin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.superadmin-form-group label {
+  display: block;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.superadmin-form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.superadmin-form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.superadmin-login-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.superadmin-login-btn:hover {
+  background: #2563eb;
+}
+
+.superadmin-login-btn:disabled {
+  background: #475569;
+  cursor: not-allowed;
+}

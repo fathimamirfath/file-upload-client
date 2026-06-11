@@ -20,6 +20,16 @@ const getAdmins = async (token) => {
   return res.data;
 };
 
+const createAdmin = async (adminData, token) => {
+  const res = await axios.post(`${API_URL}/admins`, adminData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
+};
+
+
 const deleteAdmin = async (id, token) => {
   const res = await axios.delete(`${API_URL}/admins/${id}`, {
     headers: {
@@ -56,6 +66,15 @@ const getFiles = async (token) => {
   return res.data;
 };
 
+const changeRole = async (id, role, token) => {
+  const res = await axios.put(`${API_URL}/roles/${id}`, { role }, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
+};
+
 const deleteFile = async (id, token) => {
   const res = await axios.delete(`${API_URL}/files/${id}`, {
     headers: {
@@ -68,11 +87,13 @@ const deleteFile = async (id, token) => {
 const superadminService = {
   getDashboardStats,
   getAdmins,
+  createAdmin,
   deleteAdmin,
   getUsers,
   deleteUser,
   getFiles,
   deleteFile,
+  changeRole,
 };
 
 export default superadminService;
