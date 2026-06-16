@@ -53,6 +53,23 @@ const Profile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMsg("");
+
+        if (formData.name.length < 3) {
+            setMsg("Name must be at least 3 characters long.");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setMsg("Please enter a valid email address.");
+            return;
+        }
+
+        if (formData.phone && formData.phone.length < 10) {
+            setMsg("Phone number should be at least 10 digits.");
+            return;
+        }
+
         try {
             const data = await userService.updateProfile(formData, token);
             setProfileData(data.user);

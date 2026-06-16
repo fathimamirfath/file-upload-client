@@ -16,6 +16,17 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required.");
+      return;
+    }
+
     try {
       setLoading(true);
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, {

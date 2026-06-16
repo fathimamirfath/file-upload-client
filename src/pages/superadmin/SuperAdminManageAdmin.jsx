@@ -104,6 +104,22 @@ const SuperAdminManageAdmin = () => {
 
     const handleCreateSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation
+        if (newAdmin.name.length < 3) {
+            Swal.fire({ title: 'Validation Error', text: 'Name must be at least 3 characters long.', icon: 'warning', confirmButtonColor: '#3b82f6' });
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(newAdmin.email)) {
+            Swal.fire({ title: 'Validation Error', text: 'Please enter a valid email address.', icon: 'warning', confirmButtonColor: '#3b82f6' });
+            return;
+        }
+        if (newAdmin.password.length < 6) {
+            Swal.fire({ title: 'Validation Error', text: 'Password must be at least 6 characters long.', icon: 'warning', confirmButtonColor: '#3b82f6' });
+            return;
+        }
+
         setCreateLoading(true);
         try {
             const createdAdmin = await superadminService.createAdmin(newAdmin, token);
