@@ -11,8 +11,8 @@ const SharedFiles = () => {
     const fetchSharedFiles = async () => {
       try {
         const token = localStorage.getItem("token");
-        if(!token) return;
-        
+        if (!token) return;
+
         const data = await fileService.getSharedFiles();
         setSharedFiles(data);
       } catch (error) {
@@ -43,7 +43,7 @@ const SharedFiles = () => {
 
           <div className="minimal-recent-section">
             <h2 className="minimal-section-title">Recent Shared Files</h2>
-            
+
             <div className="minimal-list">
               {sharedFiles.length === 0 ? (
                 <div className="minimal-empty">No files have been shared with you yet.</div>

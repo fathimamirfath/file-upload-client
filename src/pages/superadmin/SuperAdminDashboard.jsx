@@ -102,13 +102,8 @@ const SuperAdminDashboard = () => {
                     </div>
                 </div>
             </div>
-            
-            <div className="dashboard-content-area">
-                <div className="dashboard-card placeholder-card">
-                    <h3>Recent System Activity</h3>
-                    <p className="empty-state">No recent activity to display.</p>
-                </div>
-            </div>
+
+           
         </div>
     );
 };

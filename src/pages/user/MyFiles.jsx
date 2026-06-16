@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import UserNav from "../../components/user/UserNav";
 import fileService from "../../services/fileService";
+import Swal from 'sweetalert2';
 import "./MyFiles.css";
 
 const MyFiles = () => {
@@ -38,8 +39,21 @@ const MyFiles = () => {
       setUploading(true);
       await fileService.uploadFile(formData);
       fetchFiles();
+      Swal.fire({
+        title: 'Uploaded!',
+        text: 'Your file has been uploaded successfully.',
+        icon: 'success',
+        confirmButtonColor: '#3b82f6',
+        timer: 2000
+      });
     } catch (error) {
       console.error("Error uploading file", error);
+      Swal.fire({
+        title: 'Upload Failed',
+        text: error.response?.data?.error || error.response?.data?.message || 'Failed to upload file. Please check file size and format.',
+        icon: 'error',
+        confirmButtonColor: '#3b82f6'
+      });
     } finally {
       setUploading(false);
     }
@@ -107,6 +121,7 @@ const MyFiles = () => {
   const handleFileInput = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       handleFileUpload(e.target.files);
+      e.target.value = null; // Clear the input to allow uploading the same file again
     }
   };
 
@@ -129,7 +144,7 @@ const MyFiles = () => {
           </div>
 
           {/* Minimal Upload Zone */}
-          <div 
+          <div
             className={`minimal-upload-zone ${isDragging ? 'dragging' : ''}`}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
@@ -145,7 +160,7 @@ const MyFiles = () => {
           {/* Minimal Files List */}
           <div className="minimal-recent-section">
             <h2 className="minimal-section-title">All Files</h2>
-            
+
             <div className="minimal-list">
               {files.length === 0 ? (
                 <div className="minimal-empty">No files uploaded yet.</div>
@@ -182,7 +197,7 @@ const MyFiles = () => {
             <div className="minimal-modal-content">
               <h3>Share File</h3>
               <p className="minimal-modal-subtitle">Share "{fileToShare?.fileName}" with another user.</p>
-              
+
               {shareMsg && (
                 <div className={`minimal-msg ${shareMsg.includes("successfully") ? 'success' : 'error'}`}>
                   {shareMsg}
@@ -192,12 +207,12 @@ const MyFiles = () => {
               <form onSubmit={handleShare} className="minimal-form mt-1">
                 <div className="minimal-form-group">
                   <label>User Email</label>
-                  <input 
-                    type="email" 
-                    value={shareEmail} 
-                    onChange={(e) => setShareEmail(e.target.value)} 
+                  <input
+                    type="email"
+                    value={shareEmail}
+                    onChange={(e) => setShareEmail(e.target.value)}
                     placeholder="Enter email address"
-                    required 
+                    required
                   />
                 </div>
                 <div className="minimal-modal-actions">

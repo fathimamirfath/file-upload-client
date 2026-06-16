@@ -70,13 +70,13 @@ const SuperAdminManageFiles = () => {
     const getFileTypeBadgeColor = (type) => {
         if (!type) return { bg: '#f1f5f9', color: '#475569' };
         const lowerType = String(type).toLowerCase();
-        
+
         if (lowerType.includes('pdf')) return { bg: '#fee2e2', color: '#ef4444' };
         if (lowerType.includes('image') || lowerType.includes('png') || lowerType.includes('jpg') || lowerType.includes('jpeg')) return { bg: '#e0e7ff', color: '#4f46e5' };
         if (lowerType.includes('word') || lowerType.includes('doc')) return { bg: '#dbeafe', color: '#2563eb' };
         if (lowerType.includes('excel') || lowerType.includes('csv') || lowerType.includes('sheet')) return { bg: '#dcfce7', color: '#16a34a' };
         if (lowerType.includes('zip') || lowerType.includes('rar') || lowerType.includes('tar')) return { bg: '#fef3c7', color: '#d97706' };
-        
+
         return { bg: '#f1f5f9', color: '#475569' }; // default gray
     };
 
@@ -118,16 +118,16 @@ const SuperAdminManageFiles = () => {
                                 // Extract file type if fileType field is missing
                                 const extractedType = file.fileType || (file.filename && file.filename.split('.').pop()) || 'FILE';
                                 const typeStyles = getFileTypeBadgeColor(extractedType);
-                                
+
                                 return (
                                     <tr key={file._id}>
-                                        <td style={{ 
-                                            fontWeight: "500", 
-                                            color: "#1e293b", 
-                                            maxWidth: '220px', 
-                                            whiteSpace: 'nowrap', 
-                                            overflow: 'hidden', 
-                                            textOverflow: 'ellipsis' 
+                                        <td style={{
+                                            fontWeight: "500",
+                                            color: "#1e293b",
+                                            maxWidth: '220px',
+                                            whiteSpace: 'nowrap',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis'
                                         }}>
                                             {file.filename || file.title || "Unknown File"}
                                         </td>
@@ -142,10 +142,10 @@ const SuperAdminManageFiles = () => {
                                         </td>
                                         <td>{new Date(file.createdAt || Date.now()).toLocaleDateString()}</td>
                                         <td>
-                                            <span style={{ 
-                                                background: typeStyles.bg, 
-                                                color: typeStyles.color, 
-                                                padding: '4px 10px', 
+                                            <span style={{
+                                                background: typeStyles.bg,
+                                                color: typeStyles.color,
+                                                padding: '4px 10px',
                                                 borderRadius: '6px',
                                                 fontWeight: '600',
                                                 fontSize: '0.75rem',

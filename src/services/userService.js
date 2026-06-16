@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users"; // Adjust this if your user route is different
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/users`; // Adjust this if your user route is different
 
 const getUserProfile = async (token) => {
   const res = await axios.get(`${API_URL}/me`, {
